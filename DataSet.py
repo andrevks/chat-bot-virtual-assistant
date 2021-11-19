@@ -1,6 +1,11 @@
 import nltk, os, json, datetime, numpy as np, time
 from nltk.stem.lancaster import LancasterStemmer
 
+'''
+Stemming is the process of reducing morphological variant words into root words. 
+A stemming algorithm or program reduces the words, e.g., 
+“chocolates”, “chocolatey”, “choco” to the root word, “chocolate”.
+'''
 stemmer = LancasterStemmer()
 
 training_data = []
@@ -42,11 +47,15 @@ documents = []
 ignore_words = ['?']
 for pattern in training_data :
 	w = nltk.word_tokenize(pattern['sentence'])
+	#Copy the whole list of tokens to the words' list
 	words.extend(w)
+	#Creates a tupple with the list of the temporary sentence
+	#and adds the class' name to the right
 	documents.append((w, pattern['class']))
 	if pattern['class'] not in classes :
 		classes.append(pattern['class'])
-
+#Every token is reduced to its morphological variant
+#word into a 'root word'.
 words = [stemmer.stem(w.lower()) for w in words]
 
 words = list(set(words))
@@ -54,6 +63,7 @@ classes = list(set(classes))
 
 training = []
 output = []
+#It creates an array of Zeros
 output_empty = [0] * len(classes)
 
 for doc in documents :
@@ -68,7 +78,7 @@ for doc in documents :
 	output_row[classes.index(doc[1])] = 1
 	output.append(output_row)
 
-i = 0 
+i = 0
 w = documents[i][0]
 
 def sigmoid(x) :
@@ -147,7 +157,7 @@ def train(X, y, hidden_neurons=10, alpha=1, epochs=50000, dropout=False, dropout
 
 		if(j > 0):
 			synapse_0_direction_count += np.abs(((synapse_0_weight_update > 0)+0) - ((prev_synapse_0_weight_update > 0) + 0))
-			synapse_1_direction_count += np.abs(((synapse_1_weight_update > 0)+0) - ((prev_synapse_1_weight_update > 0) + 0))        
+			synapse_1_direction_count += np.abs(((synapse_1_weight_update > 0)+0) - ((prev_synapse_1_weight_update > 0) + 0))
 
 		synapse_1 += alpha * synapse_1_weight_update
 		synapse_0 += alpha * synapse_0_weight_update
@@ -170,14 +180,14 @@ ERROR_THRESHOLD = 0.2
 train(X, y, hidden_neurons=20, alpha=0.1, epochs=100000, dropout=False, dropout_percent=0.2)
 
 
-with open("synapses.json") as data_file : 
-	synapse = json.load(data_file) 
-	synapse_0 = np.asarray(synapse['synapse0']) 
+with open("synapses.json") as data_file :
+	synapse = json.load(data_file)
+	synapse_0 = np.asarray(synapse['synapse0'])
 	synapse_1 = np.asarray(synapse['synapse1'])
 
 def classify(sentence, show_details = False) :
 	results = think(sentence, show_details)
-	results = [[i,r] for i,r in enumerate(results) if r>ERROR_THRESHOLD ] 
-	results.sort(key=lambda x: x[1], reverse=True) 
+	results = [[i,r] for i,r in enumerate(results) if r>ERROR_THRESHOLD ]
+	results.sort(key=lambda x: x[1], reverse=True)
 	return_results =[[classes[r[0]],r[1]] for r in results]
 	return return_results
