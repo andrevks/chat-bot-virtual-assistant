@@ -9,37 +9,49 @@ A stemming algorithm or program reduces the words, e.g.,
 stemmer = LancasterStemmer()
 
 training_data = []
-training_data.append({"class":"greeting", "sentence":"how are you?"})
-training_data.append({"class":"greeting", "sentence":"how is your day?"})
-training_data.append({"class":"greeting", "sentence":"good day"})
-training_data.append({"class":"greeting", "sentence":"how is it going today?"})
-training_data.append({"class":"greeting", "sentence":"hello hi"})
-training_data.append({"class":"greeting", "sentence":"hey there"})
-training_data.append({"class":"greeting", "sentence":"what's up?"})
+# training_data.append({"class":"greeting", "sentence":"how are you?"})
+# training_data.append({"class":"greeting", "sentence":"how is your day?"})
+# training_data.append({"class":"greeting", "sentence":"good day"})
+# training_data.append({"class":"greeting", "sentence":"how is it going today?"})
+# training_data.append({"class":"greeting", "sentence":"hello hi"})
+# training_data.append({"class":"greeting", "sentence":"hey there"})
+# training_data.append({"class":"greeting", "sentence":"what's up?"})
+#
+# training_data.append({"class":"goodbye", "sentence":"have a nice day"})
+# training_data.append({"class":"goodbye", "sentence":"see you later"})
+# training_data.append({"class":"goodbye", "sentence":"have a nice day"})
+# training_data.append({"class":"goodbye", "sentence":"talk to you soon"})
+#
+# training_data.append({"class":"location", "sentence":"where is"})
+# training_data.append({"class":"location", "sentence":"coordinates for"})
+# training_data.append({"class":"location", "sentence":"location of"})
+# training_data.append({"class":"location", "sentence":"how far is"})
+#
+# training_data.append({"class":"food", "sentence":"make me a sandwich"})
+# training_data.append({"class":"food", "sentence":"can you make a sandwich?"})
+# training_data.append({"class":"food", "sentence":"having a sandwich today?"})
+# training_data.append({"class":"food", "sentence":"what's for lunch?"})
+# training_data.append({"class":"food", "sentence":"let's have dinner"})
+# training_data.append({"class":"food", "sentence":"what did you have for breakfast?"})
+# training_data.append({"class":"food", "sentence":"i am hungry"})
+#
+# training_data.append({"class":"love", "sentence":"do you love someone?"})
+# training_data.append({"class":"love", "sentence":"i love you"})
+# training_data.append({"class":"love", "sentence":"i am in love"})
+# training_data.append({"class":"love", "sentence":"i love a girl"})
+# training_data.append({"class":"love", "sentence":"i love a boy"})
 
-training_data.append({"class":"goodbye", "sentence":"have a nice day"})
-training_data.append({"class":"goodbye", "sentence":"see you later"})
-training_data.append({"class":"goodbye", "sentence":"have a nice day"})
-training_data.append({"class":"goodbye", "sentence":"talk to you soon"})
+# training_data.append({"class":"buy", "sentence":"I wanna see the list of products and prices"})
+# training_data.append({"class":"buy", "sentence":""})
 
-training_data.append({"class":"location", "sentence":"where is"})
-training_data.append({"class":"location", "sentence":"coordinates for"})
-training_data.append({"class":"location", "sentence":"location of"})
-training_data.append({"class":"location", "sentence":"how far is"})
+training_data.append({"class":"prospect", "sentence":"who are you?"})
+training_data.append({"class":"prospect", "sentence":"why are you calling?"})
+training_data.append({"class":"prospect", "sentence":"what do you sell?"})
+training_data.append({"class":"prospect", "sentence":"could you tell me the price for the macbook?"})
+training_data.append({"class":"prospect", "sentence":"I don't know what you're selling"})
 
-training_data.append({"class":"food", "sentence":"make me a sandwich"})
-training_data.append({"class":"food", "sentence":"can you make a sandwich?"})
-training_data.append({"class":"food", "sentence":"having a sandwich today?"})
-training_data.append({"class":"food", "sentence":"what's for lunch?"})
-training_data.append({"class":"food", "sentence":"let's have dinner"})
-training_data.append({"class":"food", "sentence":"what did you have for breakfast?"})
-training_data.append({"class":"food", "sentence":"i am hungry"})
 
-training_data.append({"class":"love", "sentence":"do you love someone?"})
-training_data.append({"class":"love", "sentence":"i love you"})
-training_data.append({"class":"love", "sentence":"i am in love"})
-training_data.append({"class":"love", "sentence":"i love a girl"})
-training_data.append({"class":"love", "sentence":"i love a boy"})
+
 
 words = []
 classes = []
@@ -69,8 +81,10 @@ output_empty = [0] * len(classes)
 for doc in documents :
 	bag = []
 	pattern_words = doc[0]
+	# //why
 	pattern_words = [stemmer.stem(word.lower()) for word in pattern_words]
 	for w in words :
+		#Convertion of the bag of words in numerical form
 		bag.append(1) if w in pattern_words else bag.append(0)
 
 	training.append(bag)

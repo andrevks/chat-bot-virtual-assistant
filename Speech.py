@@ -12,13 +12,18 @@ from geopy.geocoders import Nominatim
 # moz_path = 'C:\Program Files\Mozilla Firefox %s'
 
 trained = {
-			'greeting': ['Hello Sir', 'Hi', 'What\'s up'],
-			'goodbye': ['Thank You Sir', 'See you soon', 'GoodBye', 'Sayonara', 'Tata'],
-			'love': ['It is same for me', 'But I love you'],
-			'food': ['Now you are making me hungry',
-					 'I need food',
-					 'Can you just give me some electric charge because I am hungry'
-					]
+			# 'greeting': ['Hello Sir', 'Hi', 'What\'s up'],
+			# 'goodbye': ['Thank You Sir', 'See you soon', 'GoodBye', 'Sayonara', 'Tata'],
+			# 'love': ['It is same for me', 'But I love you'],
+			# 'food': ['Now you are making me hungry',
+			# 		 'I need food',
+			# 		 'Can you just give me some electric charge because I am hungry'
+			# 		],
+			'prospect': [ 'I\'m a Susan Halper from Apple.'
+						  'The initial price for a Macbook M1 is one thousand dollars',
+						  'We sell the best tech on the planet, such as Iphone, Ipad, Macbook and so on...',
+						  'I\'m calling because I think this product is for you...'
+			]
 		  }
 
 trained_rand = ['I don\'t know what you are talking about Sir', 'I believe you are speaking about yourself Sir']
@@ -118,16 +123,16 @@ def bot(data) :
 	# 		print(e)
 	# 		speak('I didn\'t get what I should search for' )
 
-	elif "open application" in data :
-		data = data.split(" ")
-		speak("Opening Application " + ' '.join(data[2:]))
-		openApp(data[2:])
+	# elif "open application" in data :
+	# 	data = data.split(" ")
+	# 	speak("Opening Application " + ' '.join(data[2:]))
+	# 	openApp(data[2:])
 
-	elif "press" in data :
-		data = data.split(" ")
-		key = data[1]
-		speak("Pressing " + key)
-		keyboard.press_and_release(key)
+	# elif "press" in data :
+	# 	data = data.split(" ")
+	# 	key = data[1]
+	# 	speak("Pressing " + key)
+	# 	keyboard.press_and_release(key)
 
 	# elif "play song" in data :
 	# 	data = data.split(" ")
@@ -146,8 +151,10 @@ def bot(data) :
 		cl = DataSet.classify(data)
 		if len(cl) > 0 :
 			if cl[0][0] == "location" :
-				Location(data)
+				pass
+				# Location(data)
 			else :
+				#Choose the response randomly
 				t = random.choice(trained[cl[0][0]])
 				# print(t)
 				speak(t)
