@@ -9,13 +9,6 @@ A stemming algorithm or program reduces the words, e.g.,
 stemmer = LancasterStemmer()
 
 training_data = []
-# training_data.append({"class":"greeting", "sentence":"how are you?"})
-# training_data.append({"class":"greeting", "sentence":"how is your day?"})
-# training_data.append({"class":"greeting", "sentence":"good day"})
-# training_data.append({"class":"greeting", "sentence":"how is it going today?"})
-# training_data.append({"class":"greeting", "sentence":"hello hi"})
-# training_data.append({"class":"greeting", "sentence":"hey there"})
-# training_data.append({"class":"greeting", "sentence":"what's up?"})
 #
 # training_data.append({"class":"goodbye", "sentence":"have a nice day"})
 # training_data.append({"class":"goodbye", "sentence":"see you later"})
@@ -44,13 +37,35 @@ training_data = []
 # training_data.append({"class":"buy", "sentence":"I wanna see the list of products and prices"})
 # training_data.append({"class":"buy", "sentence":""})
 
-training_data.append({"class":"prospect", "sentence":"who are you?"})
-training_data.append({"class":"prospect", "sentence":"why are you calling?"})
-training_data.append({"class":"prospect", "sentence":"what do you sell?"})
-training_data.append({"class":"prospect", "sentence":"could you tell me the price for the macbook?"})
-training_data.append({"class":"prospect", "sentence":"I don't know what you're selling"})
+#Patterns:
+training_data.append({"class":"intro", "sentence":"who are you?"})
+training_data.append({"class":"intro", "sentence":"why are you calling me?"})
+training_data.append({"class":"intro", "sentence":"what are you asking for?"})
+
+# training_data.append({"class":"questions", "sentence":"I see, what do you want?"})
+# training_data.append({"class":"questions", "sentence":"got it, I've got go..."})
+# training_data.append({"class":"questions", "sentence":"I don't have time for this"})
+# training_data.append({"class":"questions", "sentence":"I don't have time for this"})
+
+training_data.append({"class":"cta", "sentence":"I usually need to see the product before buying it, yknow?"})
+training_data.append({"class":"cta", "sentence":"Really? I want to see it"})
+training_data.append({"class":"cta", "sentence":"I doubt, how come ?"})
+
+training_data.append({"class":"confirmation", "sentence":"Yes, let's do this"})
+training_data.append({"class":"confirmation", "sentence":"sounds great to me"})
+training_data.append({"class":"confirmation", "sentence":"I agree, that's something I can afford"})
+
+# training_data.append({"class":"answers", "sentence":"Yes, my computer is really slow"})
+# training_data.append({"class":"answers", "sentence":"Yes, I may be interested"})
+#
+
+# training_data.append({"class":"lead", "sentence":"what do you sell?"})
+# training_data.append({"class":"lead", "sentence":"could you tell me the price for the cheapest laptop?"})
+# training_data.append({"class":"lead", "sentence":"I don't know what you're selling"})
 
 
+training_data.append({"class":"prospect", "sentence":"I would like to buy some of your produts"})
+training_data.append({"class":"prospect", "sentence":"Could you give me a discount for the laptop?"})
 
 
 words = []

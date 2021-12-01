@@ -11,6 +11,7 @@ from geopy.geocoders import Nominatim
 # chrome_path = '"C:\\Program Files\\Google\\Chrome\\Application" --no-sandbox %s'
 # moz_path = 'C:\Program Files\Mozilla Firefox %s'
 
+#Responses:?
 trained = {
 			# 'greeting': ['Hello Sir', 'Hi', 'What\'s up'],
 			# 'goodbye': ['Thank You Sir', 'See you soon', 'GoodBye', 'Sayonara', 'Tata'],
@@ -18,13 +19,28 @@ trained = {
 			# 'food': ['Now you are making me hungry',
 			# 		 'I need food',
 			# 		 'Can you just give me some electric charge because I am hungry'
+			# 		],e
+			# 'questions': [
+			# 			'Wait, do you use a computer daily?',
+			# 			'are you tired of having to use a slow computer?',
+			# 			'would you be interested in a new computer?'
 			# 		],
-			'prospect': [ 'I\'m a Susan Halper from Apple.'
-						  'The initial price for a Macbook M1 is one thousand dollars',
-						  'We sell the best tech on the planet, such as Iphone, Ipad, Macbook and so on...',
-						  'I\'m calling because I think this product is for you...'
-			]
-		  }
+			# 'prospect': [
+			# 			  'I\'m calling because I think this product is for you...',
+			# 			  'I\'m seeling Latops. The inicial price is $1000.'
+			# 			],
+			'intro': [
+						'I\'m a Susan Halper from PreTech.',
+						' We sell the best tech in the world, mostly laptops.'
+					],
+			'cta': [
+					'So you wanna buy, then ?'
+					'i could take the laptop with me and meet you tomorrow at the mall',
+
+					'If you have interest in buying the laptop I will make a discount for you!'
+					],
+
+}
 
 trained_rand = ['I don\'t know what you are talking about Sir', 'I believe you are speaking about yourself Sir']
 
@@ -97,6 +113,9 @@ def bot(data) :
 	elif "what" and "time" in data :
 		speak("Current time is : " + ctime())
 
+	# elif "that's fine" and "Totally, I can't speak right now" in data :
+	# 	speak("I'm a Susan Halper from PreTech. We sell the best tech in the world, mostly laptops.")
+
 	elif "pause" in data :
 		while True :
 			data = recordAudio()
@@ -105,6 +124,10 @@ def bot(data) :
 
 	elif "quit" in data :
 		speak("Thank you sir, Hope you have a good time")
+		sys.exit()
+
+	elif "close" and "deal" in data :
+		speak("That's great, the price is a thousand dollars, I will contact you tomorrow for further information")
 		sys.exit()
 
 	elif ("thank you" or "thanks") in data :
@@ -166,8 +189,16 @@ def bot(data) :
 
 def main() :
 	time.sleep(2)
-	speak("Hello Sir, What can I do for you?")
+	# speak("Hello Sir, What can I do for you?")
+	speak('Did I catch you at a bad time?')
+	time.sleep(0.2)
+	speak("I'm a Susan Halper from PreTech. We sell the best tech in the world, mostly laptops.")
+	time.sleep(0.2)
+	speak("I have the lastest ultrabook laptop model that is just for you...")
+	time.sleep(0.2)
 	data = " "
+	data = recordAudio()
+	bot(data)
 	while True :
 		data = recordAudio()
 		bot(data)
