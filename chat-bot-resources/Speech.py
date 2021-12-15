@@ -1,8 +1,7 @@
 import DataSet
 import speech_recognition as sr
-import keyboard, requests, json, geopy, time, sys, webbrowser, pyttsx3, random, subprocess, sys
+import time, pyttsx3, random, sys
 from time import ctime
-from geopy.geocoders import Nominatim
 
 # moz_path = '/usr/bin/firefox %s'
 # chrome_path = '/usr/bin/google-chrome-stable --no-sandbox %s'
