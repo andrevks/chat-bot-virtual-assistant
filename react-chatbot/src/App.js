@@ -2,6 +2,7 @@ import React, {useState, useEffect } from 'react';
 import mainPhoto from './mainphoto.png';
 import mic from './dark.png';
 import './App.css';
+import SpeechToText from './SpeechRecognition';
 
 function App() {
   const [ currentTime, setCurrentTime ] = useState(0);
@@ -14,24 +15,22 @@ function App() {
     });
   }, []);
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    let voiceClip = {'voice_clip':'No PAIN no GAIN!'};
-    voiceClip = JSON.stringify(voiceClip);
-    fetch('http://localhost:5000/record', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      mode: 'cors',
-      body: voiceClip
-    }).then(res => res.json()).then(data =>{
-      console.log(data);
-    });
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   let voiceClip = {'voice_clip':'No PAIN no GAIN!'};
+  //   voiceClip = JSON.stringify(voiceClip);
+  //   fetch('http://localhost:5000/record', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     mode: 'cors',
+  //     body: voiceClip
+  //   }).then(res => res.json()).then(data =>{
+  //     console.log(data);
+  //   });
     
-    // alert("You clicked ");
-    // or you can send to backend
-  };
+  // };
 
 
   return (
@@ -49,10 +48,10 @@ function App() {
         >
         <img src={mainPhoto} className="mainPhoto" alt="Main Photo"/>
 
-        <img src={mic} className="mic" alt="microphone" onClick={handleSubmit}/>
-          <p>
+          {/* <p>
             The current time is {currentTime}.
-          </p>
+          </p> */}
+        <SpeechToText/>
         </div>
 
       </header>
