@@ -7,13 +7,13 @@ import SpeechToText from './SpeechRecognition';
 function App() {
   const [ currentTime, setCurrentTime ] = useState(0);
 
-  useEffect(()=>{
-    fetch('/time',{
-      mode: 'cors'
-    }).then(res => res.json()).then(data =>{
-      setCurrentTime(data.time);
-    });
-  }, []);
+  // useEffect(()=>{
+  //   fetch('http://localhost:5000/time',{
+  //     mode: 'cors'
+  //   }).then(res => res.json()).then(data =>{
+  //     setCurrentTime(data.time);
+  //   });
+  // }, []);
 
   // const handleSubmit = e => {
   //   e.preventDefault();
