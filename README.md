@@ -16,6 +16,5 @@ Chatbot made in Python. The front end was done in ReactJS connected to a Flask A
 ### Credits:
 
 
-Lin Zagorski Latimer for making the image of the woman
-
-![chatbot_dribbble](https://dribbble.com/shots/14575540-Marge-the-Chatbot?utm_source=Clipboard_Shot&utm_campaign=linzagorski&utm_content=Marge%20the%20Chatbot&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=linzagorski&utm_content=Marge%20the%20Chatbot&utm_medium=Social_Share)
+- [🎞️ `Lin Zagorski Latimer` 
+ for making the image of the woman](https://dribbble.com/shots/14575540-Marge-the-Chatbot?utm_source=Clipboard_Shot&utm_campaign=linzagorski&utm_content=Marge%20the%20Chatbot&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=linzagorski&utm_content=Marge%20the%20Chatbot&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=linzagorski&utm_content=Marge%20the%20Chatbot&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=linzagorski&utm_content=Marge%20the%20Chatbot&utm_medium=Social_Share)
