@@ -28,3 +28,13 @@
   height: 120px;
   width: 120px;
 }
+
+.Speech {
+  /*position: absolute;*/
+  width: 50px;
+  margin-top: 400px;
+  margin-left: -100px;
+}
+.group {
+  margin: 7px 0;
+}

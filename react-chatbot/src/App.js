@@ -3,6 +3,7 @@ import mainPhoto from './mainphoto.png';
 import mic from './dark.png';
 import './App.css';
 import SpeechToText from './SpeechRecognition';
+import TextToSpeech from "./TextToSpeech";
 
 function App() {
   const [ currentTime, setCurrentTime ] = useState(0);
@@ -51,7 +52,9 @@ function App() {
           {/* <p>
             The current time is {currentTime}.
           </p> */}
+          <TextToSpeech/>
         <SpeechToText/>
+
         </div>
 
       </header>

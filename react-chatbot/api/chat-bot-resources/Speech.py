@@ -198,7 +198,7 @@ def main() :
 	data = " "
 	data = recordAudio()
 	bot(data)
-	while True :
+	while True:
 		data = recordAudio()
 		bot(data)
 	# bot("hello")

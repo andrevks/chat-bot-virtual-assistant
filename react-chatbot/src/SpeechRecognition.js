@@ -1,13 +1,15 @@
-
 import React, { useEffect, useState } from "react";
 import SpeechRecognition, {
   useSpeechRecognition
 } from "react-speech-recognition";
 import mic from './dark.png';
+import TextToSpeech from "./TextToSpeech";
 // import "./speech-to-text.css";
 
 const SpeechToText = () => {
   const { transcript, resetTranscript } = useSpeechRecognition();
+  const [answer, setAnswer] = React.useState(" ");
+
   const printOnSubmit = (e) =>{
     e.preventDefault();
     // alert(e.target.text.value);
@@ -22,7 +24,9 @@ const SpeechToText = () => {
       mode: 'cors',
       body: voiceClip
     }).then(res => res.json()).then(data =>{
-      console.log(data);
+      console.log(data['answer']);
+      data = data['answer'];
+      setAnswer(data);
     });
   };
 
@@ -46,6 +50,7 @@ const SpeechToText = () => {
   }
   return (
     <div>
+      {answer? <TextToSpeech answer={answer}/>: <span> " " </span>}
     <img src={mic} className="mic" alt="microphone" onClick={handleSubmit}/>
       <form onSubmit={printOnSubmit}>
         <textarea name="text" rows={3} cols={20} value={transcript}></textarea>

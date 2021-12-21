@@ -17,6 +17,11 @@ class VirtualAssistant:
 
                 'If you have interest in buying the laptop I will make a discount for you!'
             ] ,
+            'confirmation':[
+                'That\'s amazing, see you',
+                'I\'m looking forward to this',
+                'You won\'t regret! this is a unique opportunity'
+            ]
         }
         self.trained_rand = ['I don\'t know what you are talking about Sir' ,
                              'I believe you are speaking about yourself Sir']
@@ -49,10 +54,17 @@ class VirtualAssistant:
                 # Location(data)
                 else:
                     # Choose the response randomly
-                    t = random.choice(self.trained[cl[0][0]])
-                    # print(t)
-                    self.speak(t)
-                    return t
+                    try:
+                        t = random.choice(self.trained[cl[0][0]])
+                        # print(t)
+                        self.speak(t)
+                        return t
+                    except KeyError as keyE:
+                        print(f"There's no response to it, classfication: {keyE}")
+                        return "No response"
+                    except Exception as e:
+                        print(f"Error on the response: {e}")
+
             else:
                 t = random.choice(self.trained_rand)
                 # print(t)
