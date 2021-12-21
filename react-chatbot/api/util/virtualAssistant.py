@@ -8,19 +8,23 @@ class VirtualAssistant:
         self.dataset = dataset
         self.trained = {
             'intro': [
-                'I\'m a Susan Halper from PreTech.' ,
+                'I\'m a Susan Halper from PreTech.' 
                 ' We sell the best tech in the world, mostly laptops.'
             ] ,
             'cta': [
                 'So you wanna buy, then ?'
                 'i could take the laptop with me and meet you tomorrow at the mall' ,
-
                 'If you have interest in buying the laptop I will make a discount for you!'
             ] ,
             'confirmation':[
                 'That\'s amazing, see you',
                 'I\'m looking forward to this',
                 'You won\'t regret! this is a unique opportunity'
+            ],
+            'prospect':[
+                'The laptop\'s price range from $600 to $1500.',
+                'The recommend laptop is $1000, I can give you 10% of discount',
+                'I have a bundle of a $1200 with the laptop and a keyboard'
             ]
         }
         self.trained_rand = ['I don\'t know what you are talking about Sir' ,

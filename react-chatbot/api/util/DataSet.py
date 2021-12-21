@@ -64,6 +64,7 @@ training_data.append({"class":"confirmation", "sentence":"I agree, that's someth
 # training_data.append({"class":"lead", "sentence":"I don't know what you're selling"})
 
 
+
 training_data.append({"class":"prospect", "sentence":"I would like to buy some of your produts"})
 training_data.append({"class":"prospect", "sentence":"Could you give me a discount for the laptop?"})
 
